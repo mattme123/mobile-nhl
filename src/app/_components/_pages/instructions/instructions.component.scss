@@ -1,0 +1,22 @@
+@import "../../../../global.scss";
+
+.bgimg {
+  background-image: url(../../../../assets/gameplay.jpg);
+  @extend %background;
+}
+
+.my-img {
+  background-image: url(../../../../assets/logo.png);
+  @extend %coverCenter;
+  width: 5em;
+  height: 5em;
+}
+
+.button {
+  --background: white;
+  --color: black;
+}
+
+.whitebg {
+  background-color: white;
+}

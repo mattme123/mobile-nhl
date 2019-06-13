@@ -1,0 +1,33 @@
+<ion-grid class="bgimg">
+  <ion-row>
+    <ion-col class="d-flex justify-content-center">
+      <div class="my-img"></div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h2 class="white d-flex justify-content-center">
+        Please select a game mode
+      </h2>
+    </ion-col>
+  </ion-row>
+  <ion-row class="mt-2">
+    <ion-col class="d-flex justify-content-center">
+      <ion-button routerLink='/instructions'>
+        Single Player
+      </ion-button>
+    </ion-col>
+    <ion-col class="d-flex justify-content-center">
+      <ion-button (click)='computer()'>
+        VS Computer
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="move-down">
+    <ion-col>
+      <ion-button expand='block' routerLink=''>
+        Home
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

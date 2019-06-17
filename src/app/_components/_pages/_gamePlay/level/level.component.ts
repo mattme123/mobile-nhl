@@ -1,14 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { GameService } from 'src/app/_services/game.service';
 
 @Component({
   selector: 'app-level',
   templateUrl: './level.component.html',
   styleUrls: ['./level.component.scss'],
 })
-export class LevelComponent implements OnInit {
+export class LevelComponent implements OnInit, OnDestroy {
+  lvl;
+  mySub = new Subscription();
+  constructor(
+    private myService: GameService
+  ) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.mySub.add(
+      this.myService.questionNum
+        .subscribe(
+          res => {
+            this.lvl = res;
+          }
+        ));
+  }
 
-  ngOnInit() {}
+  ngOnDestroy() {
+    this.mySub.unsubscribe();
+  }
 
 }

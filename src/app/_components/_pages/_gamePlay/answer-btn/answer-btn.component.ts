@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-answer-btn',
@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answer-btn.component.scss'],
 })
 export class AnswerBtnComponent implements OnInit {
-
+  @Input() text: any;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

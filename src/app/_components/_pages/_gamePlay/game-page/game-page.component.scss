@@ -1,10 +1,8 @@
+@import "../.././../../../global.scss";
+
 .bgimg {
   background-image: url(../../../../../assets/gameplay.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
+  @extend %background;
 }
 
 #overlay {
@@ -33,27 +31,16 @@
 
 .my-img {
   background-image: url(../../../../../assets/logo.png);
-  background-position: center;
-  background-size: cover;
-  width: 10em;
-  height: 10em;
+  @extend %coverCenter;
+  width: 4vh;
+  height: 4vh;
 }
 
 .button {
-  background-color: white;
-  border: none;
-  color: black;
-  padding: 0.5rem 8rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
-  font-size: 2rem;
-  width: 60vh;
+  --background: white;
+  --color: black;
 }
-
+/* 
 .buttonChoice {
   border: none;
   color: black;
@@ -95,7 +82,7 @@
   font-size: 2rem;
   width: 40vw;
 }
-
+ */
 .text-align-center {
   text-align: center;
 }

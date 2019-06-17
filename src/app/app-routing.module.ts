@@ -34,7 +34,7 @@ const routes: Routes = [
     component: IntermissionComponent
   },
   {
-    path: 'gameOver',
+    path: 'game-over',
     component: GameOverComponent
   }
 ];

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { GameService } from 'src/app/_services/game.service';
+import { SoundService } from 'src/app/_services/sound.service';
 
 @Component({
   selector: 'app-select-mode',
@@ -9,7 +11,12 @@ import { Router } from '@angular/router';
 })
 export class SelectModeComponent implements OnInit {
 
-  constructor(public alertController: AlertController, private router: Router) { }
+  constructor(
+    public alertController: AlertController,
+    private router: Router,
+    private myService: GameService,
+    private soundService: SoundService
+  ) { }
 
   ngOnInit() { }
 
@@ -22,18 +29,21 @@ export class SelectModeComponent implements OnInit {
             {
               text: 'Easy',
               handler: () => {
+                this.setDifficulty('Easy');
                 this.router.navigate(['/instructions']);
               }
             },
             {
               text: 'Medium',
               handler: () => {
+                this.setDifficulty('Medium');
                 this.router.navigate(['/instructions']);
               }
             },
             {
               text: 'Hard',
               handler: () => {
+                this.setDifficulty('Hard');
                 this.router.navigate(['/instructions']);
               }
             },
@@ -44,4 +54,21 @@ export class SelectModeComponent implements OnInit {
 
     await alert.present();
   }
+
+  setDifficulty(text: string) {
+    this.soundService.button.play();
+    this.myService.diff = text;
+    this.myService.computerMode();
+  }
+
+  normal() {
+    this.myService.diff = 'Single';
+  }
+
+  btnClick() {
+    this.soundService.button.play();
+  }
+
 }
+
+

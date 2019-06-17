@@ -2,35 +2,31 @@
   <div *ngIf='penalty' class='slideDown' id="overlay">
     <div id="text">Penalty!</div>
   </div>
-  <ion-row>
-    <ion-col size='2'>
-      <div class="d-none d-md-block">
-        <div class="my-img"></div>
-      </div>
+  <!--   <ion-row>
+    <ion-col class="d-flex justify-content-center">
+      <div class="my-img"></div>
     </ion-col>
-    <ion-col size='2'>
+  </ion-row> -->
+  <ion-row>
+    <ion-col>
       <h4 class="d-flex justify-content-center whitebg" id="diff">
         {{d}}
       </h4>
     </ion-col>
-    <ion-col></ion-col>
-    <ion-col size='2'>
+    <ion-col>
       <app-period></app-period>
     </ion-col>
-    <ion-col></ion-col>
-    <ion-col size='1'>
+    <ion-col>
       <app-level></app-level>
     </ion-col>
-    <ion-col></ion-col>
   </ion-row>
+
   <ion-row>
-    <ion-col size='3'></ion-col>
-    <ion-col size='6' *ngIf='computer'>
+    <ion-col *ngIf='computer'>
       <h3 *ngIf='computerScored' class="bounceIn">
         &nbsp;Computer Scored!
       </h3>
     </ion-col>
-    <ion-col size='3'></ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
@@ -41,6 +37,8 @@
     <ion-col>
       <app-answer-btn (click)='answerClicked($event)' [text]='q1'></app-answer-btn>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col>
       <app-answer-btn (click)='answerClicked($event)' [text]='q2'></app-answer-btn>
     </ion-col>
@@ -49,23 +47,26 @@
     <ion-col>
       <app-answer-btn (click)='answerClicked($event)' [text]='q3'></app-answer-btn>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col>
-      <app-answer-btn (click)=' answerClicked($event)' [text]='q4'></app-answer-btn>
+      <app-answer-btn (click)='answerClicked($event)' [text]='q4'></app-answer-btn>
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size='3'></ion-col>
-    <ion-col size='2'>
-      <app-computer-score *ngIf='computer'></app-computer-score>
+    <ion-col *ngIf='computer'>
+      <app-computer-score></app-computer-score>
     </ion-col>
-    <ion-col size='2'>
+    <ion-col>
       <app-timer></app-timer>
     </ion-col>
-    <ion-col size='2'>
+    <ion-col>
       <app-player-score></app-player-score>
     </ion-col>
-    <ion-col size=3>
-      <ion-button (click)='resetGame()' [routerLink]=''>Home</ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button expand='block' (click)='resetGame()' routerLink=''>Home</ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>

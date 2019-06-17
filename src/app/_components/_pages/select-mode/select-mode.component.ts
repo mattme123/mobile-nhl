@@ -69,6 +69,10 @@ export class SelectModeComponent implements OnInit {
     this.soundService.button.play();
   }
 
+  resetGame() {
+    this.myService.resetGame();
+  }
+
 }
 
 

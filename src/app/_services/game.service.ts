@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { SoundService } from './sound.service';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,8 @@ export class GameService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private soundService: SoundService
+    private soundService: SoundService,
+    private toast$: ToastService
   ) {
     this.getData();
     this.origTime = 15;
@@ -112,6 +114,7 @@ export class GameService {
       this.correctAnswer.next(true);
       if (this.shortHanded > 0) {
         const sh = this.shg.value;
+        this.toast$.shgToast();
         this.shg.next(sh + 1);
         this.shortHanded--;
       }
@@ -180,6 +183,7 @@ export class GameService {
     if (this.correctCounter === 3) {
       const s = this.score.value;
       this.score.next(s + 2);
+      this.toast$.htToast();
       this.hatTrick++;
       this.correctCounter = 0;
     } else {
@@ -218,11 +222,9 @@ export class GameService {
 
   assignPenalty() {
     this.penalty.next(true);
-    setTimeout(() => {
-      this.penalty.next(false);
-    }, 2000);
+    this.toast$.penaltyToast();
     this.soundService.penalty.play();
-    this.origTime = 12;
+    this.origTime = 10;
     const p = this.penalties.value;
     this.penalties.next(p + 1);
     this.shortHanded++;
@@ -231,20 +233,19 @@ export class GameService {
   computerPlay() {
     let d: number;
     if (this.diff === 'Easy') {
-      d = 6;
+      d = 2;
     } else if (this.diff === 'Medium') {
       d = 4;
     } else if (this.diff === 'Hard') {
-      d = 2;
+      d = 6;
     }
-    const comNum = Math.floor((Math.random() * d) + 1);
-    if (comNum === d / 2) {
-      const s = this.computerScore.value;
-      this.computerScore.next(s + 1);
-      this.computerScored.next(true);
-      setTimeout(() => {
-        this.computerScored.next(false);
-      }, 1800);
+    const comNum = Math.floor((Math.random() * 8) + 1);
+    for (let i = 1; i <= d; i++) {
+      if (comNum === i) {
+        const s = this.computerScore.value;
+        this.computerScore.next(s + 1);
+        this.toast$.computerToast();
+      }
     }
   }
 
@@ -272,7 +273,9 @@ export class GameService {
     this.hatTrick = 0;
     this.shortHanded = 0;
     this.origTime = 15;
+    this.diff = '';
     this.getData();
+    this.router.navigateByUrl('');
   }
 
 }

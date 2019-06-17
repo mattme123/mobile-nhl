@@ -18,3 +18,11 @@
 .green {
   background-color: green;
 }
+
+//Iphone 5/SE
+@media (max-width: 350px) {
+  .questionArea {
+    font-size: 0.95em;
+    height: 5em;
+  }
+}

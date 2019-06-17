@@ -5,71 +5,48 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size='2'> </ion-col>
-    <ion-col size='8'>
+    <ion-col>
       <h3 class='whitebg text-center'>
         End of the Game!
       </h3>
     </ion-col>
-    <ion-col size='2'> </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size='2'></ion-col>
-    <ion-col size='4' *ngIf='computer && computerWin'>
+    <ion-col *ngIf='computer && computerWin'>
       <h3 class='green'><b>
           Computer final score: &nbsp; <span id="scoreFC">{{computerScore}}</span>
         </b></h3>
     </ion-col>
-    <ion-col size='4' *ngIf='computer && computerWin'>
+    <ion-col *ngIf='computer && computerWin'>
       <h3 class='red'><b>
           Your final score: &nbsp; <span id="scoreF">{{score}}</span>
         </b></h3>
     </ion-col>
-    <ion-col size='4' *ngIf='computer && computerWin'>
-      <h3 class='red'><b>
-          Computer final score: &nbsp; <span id="scoreFC">{{computerScore}}</span>
-        </b></h3>
-    </ion-col>
-    <ion-col size='4' *ngIf='computer && computerWin'>
-      <h3 class='green'><b>
-          Your final score: &nbsp; <span id="scoreF">{{score}}</span>
-        </b></h3>
-    </ion-col>
-
-    <ion-col size='8' *ngIf='!computer'>
+    <ion-col *ngIf='!computer'>
       <h3><b>
           Your final score: &nbsp; <span id="scoreF">{{score}}</span>
         </b></h3>
     </ion-col>
-    <ion-col size='2'></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size='2'></ion-col>
-    <ion-col size='8'>
-      <h3>
+    <ion-col>
+      <h3 class='text-center'>
         Number of correct: <span id="correct">{{correct}}</span>/30
       </h3>
     </ion-col>
-    <ion-col size='2'></ion-col>
-    <ion-col></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col size='3'>
+    <ion-col size='4'>
       <h3>
         HTs: <span id="ht">{{hatTrick}}</span>
       </h3>
     </ion-col>
-    <ion-col size='3'>
-      <h3 data-toggle="tooltip" title="Power Play Goals (Coming Soon!)">
-        PPG: <span id="ppg">{{ppg}}</span>
-      </h3>
-    </ion-col>
-    <ion-col size='3'>
+    <ion-col size='4'>
       <h3 data-toggle="tooltip" title="Short Handed Goals">
         SHG: <span id="shg">{{shg}}</span>
       </h3>
     </ion-col>
-    <ion-col size='3'>
+    <ion-col size='4'>
       <h3>
         Pens: <span id="pen">{{penalties}}</span>
       </h3>
@@ -84,7 +61,7 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-button expand="block" routerLink='' (click)='resetGame()'>
+      <ion-button expand="block" (click)='resetGame()'>
         Home
       </ion-button>
     </ion-col>

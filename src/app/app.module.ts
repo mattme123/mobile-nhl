@@ -16,7 +16,6 @@ import { SelectModeComponent } from './_components/_pages/select-mode/select-mod
 import { InstructionsComponent } from './_components/_pages/instructions/instructions.component';
 import { AnswerBtnComponent } from './_components/_pages/_gamePlay/answer-btn/answer-btn.component';
 import { ComputerScoreComponent } from './_components/_pages/_gamePlay/computer-score/computer-score.component';
-import { DifficultyComponent } from './_components/_pages/_gamePlay/difficulty/difficulty.component';
 import { GamePageComponent } from './_components/_pages/_gamePlay/game-page/game-page.component';
 import { LevelComponent } from './_components/_pages/_gamePlay/level/level.component';
 import { PeriodComponent } from './_components/_pages/_gamePlay/period/period.component';
@@ -35,7 +34,6 @@ import { GameOverComponent } from './_components/_pages/game-over/game-over.comp
     InstructionsComponent,
     AnswerBtnComponent,
     ComputerScoreComponent,
-    DifficultyComponent,
     GamePageComponent,
     LevelComponent,
     PeriodComponent,

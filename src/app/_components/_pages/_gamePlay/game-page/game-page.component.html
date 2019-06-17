@@ -1,12 +1,4 @@
 <ion-grid class="bgimg">
-  <div *ngIf='penalty' class='slideDown' id="overlay">
-    <div id="text">Penalty!</div>
-  </div>
-  <!--   <ion-row>
-    <ion-col class="d-flex justify-content-center">
-      <div class="my-img"></div>
-    </ion-col>
-  </ion-row> -->
   <ion-row>
     <ion-col>
       <h4 class="d-flex justify-content-center whitebg" id="diff">
@@ -18,14 +10,6 @@
     </ion-col>
     <ion-col>
       <app-level></app-level>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col *ngIf='computer'>
-      <h3 *ngIf='computerScored' class="bounceIn">
-        &nbsp;Computer Scored!
-      </h3>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -66,7 +50,7 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-button expand='block' (click)='resetGame()' routerLink=''>Home</ion-button>
+      <ion-button expand='block' (click)='resetGame()'>Home</ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>

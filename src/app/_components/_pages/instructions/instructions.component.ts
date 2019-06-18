@@ -32,6 +32,7 @@ export class InstructionsComponent implements OnInit, OnDestroy {
   }
 
   startGame() {
+    this.soundService.lowVolume();
     this.myService.nextQuestion();
     this.myService.setTimer();
     this.soundService.button.play();

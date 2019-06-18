@@ -214,8 +214,10 @@ export class GameService {
     this.clearTimer();
     this.soundService.intermission.play();
     if (this.questionNum.value === 10 || this.questionNum.value === 20) {
+      this.soundService.midVolume();
       this.router.navigateByUrl('/intermission');
     } else {
+      this.soundService.highVolume();
       this.router.navigateByUrl('/game-over');
     }
   }

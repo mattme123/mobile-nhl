@@ -21,7 +21,6 @@ export class IntermissionComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.soundService.midVolume();
     this.sub.add(
       this.myService.period
         .subscribe(
@@ -68,6 +67,7 @@ export class IntermissionComponent implements OnInit, OnDestroy {
   }
 
   continue() {
+    this.soundService.lowVolume();
     this.myService.increasePeriod();
     this.myService.nextQuestion();
     this.myService.setTimer();
@@ -75,6 +75,7 @@ export class IntermissionComponent implements OnInit, OnDestroy {
   }
 
   resetGame() {
+    this.soundService.highVolume();
     this.myService.resetGame();
     this.soundService.button.play();
   }

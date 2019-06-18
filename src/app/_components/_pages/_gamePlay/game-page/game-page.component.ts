@@ -27,7 +27,6 @@ export class GamePageComponent implements OnInit, OnDestroy {
     private soundService: SoundService
   ) {
 
-    this.soundService.lowVolume();
     this.sub.add(
       this.myService.question1
         .subscribe(
@@ -135,6 +134,7 @@ export class GamePageComponent implements OnInit, OnDestroy {
   }
 
   resetGame() {
+    this.soundService.highVolume();
     this.myService.resetGame();
     this.soundService.button.play();
   }

@@ -29,6 +29,7 @@ export class SelectModeComponent implements OnInit {
             {
               text: 'Easy',
               handler: () => {
+                this.btnClick();
                 this.setDifficulty('Easy');
                 this.router.navigate(['/instructions']);
               }
@@ -36,6 +37,7 @@ export class SelectModeComponent implements OnInit {
             {
               text: 'Medium',
               handler: () => {
+                this.btnClick();
                 this.setDifficulty('Medium');
                 this.router.navigate(['/instructions']);
               }
@@ -43,6 +45,7 @@ export class SelectModeComponent implements OnInit {
             {
               text: 'Hard',
               handler: () => {
+                this.btnClick();
                 this.setDifficulty('Hard');
                 this.router.navigate(['/instructions']);
               }
@@ -62,6 +65,7 @@ export class SelectModeComponent implements OnInit {
   }
 
   normal() {
+    this.btnClick();
     this.myService.diff = 'Single';
   }
 

@@ -1,5 +1,7 @@
 {
   "name": "trivia",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
